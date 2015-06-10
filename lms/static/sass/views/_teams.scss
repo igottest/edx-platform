@@ -11,6 +11,7 @@
 
   .icon {
     font-family: "FontAwesome";
+    color: inherit;
   }
 
   %button-reset {
@@ -146,6 +147,197 @@
 
   .intro {
     @extend %t-weight4;
+  }
+
+  .search-tools {
+    @extend %t-copy-sub1;
+    margin: ($baseline/10) $baseline;
+    color: $gray-l1;
+  }
+
+  .card {
+    @extend .clearfix;
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    margin: ($baseline) 1.2%;
+    border: 1px solid $gray-l4;
+    border-radius: 3px;
+    background-color: $gray-l5;
+    color: $black;
+
+    &:hover,
+    &:active,
+    &:focus {
+
+      .card-core-wrapper {
+        background-color: $white;
+      }
+
+      .card-meta-wrapper {
+        background-color: $gray-l5;
+      }
+    }
+
+    .card-core-wrapper {
+      @extend .clearfix;
+      transition: all .25s ease-in-out;
+      padding: ($baseline);
+    }
+
+    .card-title {
+      @extend %t-title5;
+      @extend %t-strong;
+      margin-bottom: .5em;
+    }
+
+    .card-description {
+      @extend %t-copy-sub1;
+      color: $gray;
+    }
+
+    .card-actions {
+
+      .action-view {
+        @extend %btn-pl-default-base;
+        float: right;
+      }
+    }
+
+    .card-meta-wrapper {
+      @extend .clearfix;
+      @extend %t-copy-sub1;
+      transition: all .25s ease-in-out;
+      border-bottom: 2px solid $gray-l3;
+      padding: ($baseline/2) $baseline;
+      background-color: $gray-l4;
+      color: $black;
+
+      p, span { // override
+        color: $gray;
+      }
+    }
+
+    .meta-detail {
+      @extend %t-strong;
+      display: inline-block;
+      margin-top: ($baseline/4);
+      margin-right: ($baseline*.75);
+    }
+
+    &.square-card {
+
+      .card-description {
+        height: ($baseline*4);
+        overflow: hidden;
+      }
+
+      .card-meta-wrapper {
+
+        &.has-actions {
+          .card-meta-details,
+          .card-actions {
+            display: inline-block;
+            width: 49%;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    &.list-card {
+      width: auto;
+      display: block;
+      box-shadow: 0 2px 3px $shadow-l1;
+
+      .card-core-wrapper {
+        @extend %vertical-aligner;
+
+        &.has-actons {
+
+          .card-core {
+            display: inline-block;
+            width: 65%;
+          }
+
+          .card-actions {
+            display: inline-block;
+            float: right;
+            width: 30%;
+          }
+        }
+      }
+
+      .card-core {
+        display: inline-block;
+        vertical-align: middle;
+        width: 84%;
+      }
+
+      .card-title .team-link {
+        @extend %t-strong;
+        color: $link-color;
+      }
+
+      .card-actions {
+        display: inline-block;
+        vertical-align: middle;
+        width: 15%;
+      }
+    }
+
+    .card-meta-wrapper {
+
+      .member-thumbs {
+        display: inline-block;
+        vertical-align: text-bottom;
+
+        img {
+          width: 20px;
+          height: 20px;
+          margin: 0 ($baseline/4);
+        }
+      }
+    }
+
+    .meta-detail {
+      @extend %t-regular;
+
+      .icon {
+        margin-right: ($baseline/4);
+      }
+    }
+
+    .team-activity {
+      float: right;
+    }
+
+    &.has-pennant {
+
+      .card-core-wrapper {
+        padding-top: ($baseline*2);
+      }
+
+      .pennant {
+        @extend %t-copy-sub2;
+        display: inline-block;
+        position: absolute;
+        top: ($baseline/2);
+        left: -($baseline/4);
+        background-color: $gray-d2;
+        padding: ($baseline/10) ($baseline/2);
+        color: $white;
+
+        &:after {
+          content: '';
+          height: 0;
+          width: 0;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent $gray-l5 transparent transparent;
+        }
+      }
+    }
   }
 
   .create-team {
